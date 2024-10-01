@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-// import "./App.css";
-// import "./Form.css";
 import html2canvas from "html2canvas";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { FaFacebookSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
 import SliderInput from "./components/SliderInput";
-// import React from "react";
 
 export default function App() {
   let [photo, setPhoto] = useState<{ id: any; urls: any; user: any }>({
@@ -142,7 +140,7 @@ export default function App() {
   return (
     <div className="text-white bg-gray-800">
 
-      <h1 className="text-2xl"> Cover Image Generator</h1>
+      <Header />
 
       <div className="">
         <div className="">
