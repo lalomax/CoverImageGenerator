@@ -15,7 +15,7 @@ export default function App() {
     user: "",
   });
 
-  
+
   const [formData, setFormData] = useState({
     name: "John Doe",
     title: "Web Developer",
@@ -35,6 +35,7 @@ export default function App() {
     clrFont: "#ffffff",
   });
 
+  // console.log(formData)
 
   const fontFamilies = [
     "Arial",
@@ -49,6 +50,7 @@ export default function App() {
   ];
   function handleChange(event: any) {
     const { name, value, type, checked } = event.target;
+    console.log(event.target)
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -60,6 +62,7 @@ export default function App() {
   function handleSubmit(event: any) {
     event.preventDefault();
     // submitToApi(formData)
+    localStorage.setItem('formData', JSON.stringify(formData));
   }
 
   const url =
@@ -72,6 +75,13 @@ export default function App() {
   useEffect(() => {
     setImage(photo.urls.regular);
   }, [photo]);
+
+  useEffect(() => {
+    const storedFormData = localStorage.getItem('formData');
+    if (storedFormData) {
+      setFormData(JSON.parse(storedFormData));
+    }
+  }, []);
 
   function generatePhoto() {
     const photoUrl = formData.query
@@ -247,7 +257,7 @@ export default function App() {
         </div>
 
         <div className="bg-slate-900 rounded-lg min-w-80">
-          <form onSubmit={handleSubmit} className="m-auto flex justify-center items-center mt-1 flex-wrap text-slate-900">
+          <form onSubmit={handleSubmit} className="m-auto flex justify-center items-center mt-1 flex-wrap text-slate-900 gap-2 m-2" >
             <div className="">
               <p className="text-lg font-semibold text-center mb-1 text-slate-400">Image</p>
               <div className="">
@@ -307,9 +317,9 @@ export default function App() {
                 </button>
               </div>
             </div>
-            
+
             {/* Three columns data */}
-            
+            {/* Info section */}
             <div className="">
               <p className="control-header">Info</p>
               <div className="flex text-slate-400">
@@ -378,7 +388,7 @@ export default function App() {
                 />
               </div>
             </div>
-
+          {/* Styling section */}
             <div className="style-form">
               <p className="text-lg text-slate-400">Styling</p>
               <div className="">
@@ -462,6 +472,7 @@ export default function App() {
                 label="Opacity"
               />
             </div>
+
           </form>
         </div>
       </div>
