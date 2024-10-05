@@ -109,6 +109,9 @@ export default function App() {
     html2canvas(document.getElementById("capture") as HTMLCanvasElement, {
       allowTaint: true,
       useCORS: true,
+      width : formData.width,
+      height : formData.height,
+      scale : 1,
     }).then(function (canvas) {
       let anchorTag = document.createElement("a");
       document.body.appendChild(anchorTag);
@@ -152,8 +155,12 @@ export default function App() {
 
       <Header />
 
+      {/* Main container */}
       <div className="">
+        
+        {/* Sub header container */}
         <div className="">
+        
           {/* Icons */}
           <div className="flex justify-center gap-2 p-2">
             {icons.map((icon, index) => (
@@ -189,9 +196,8 @@ export default function App() {
               label="Height"
             />
           </div>
-
-          <div></div>
         </div>
+
         {/* Cover data container */}
         <div
           className="relative m-auto mt-4 shadow-lg"
@@ -256,6 +262,7 @@ export default function App() {
           )}
         </div>
 
+        {/* Form container */}
         <div className="bg-slate-900 rounded-lg min-w-80">
           <form onSubmit={handleSubmit} className="m-auto flex justify-center items-center mt-1 flex-wrap text-slate-900 gap-2" >
             <div className="">
