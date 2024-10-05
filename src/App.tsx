@@ -257,7 +257,7 @@ export default function App() {
         </div>
 
         <div className="bg-slate-900 rounded-lg min-w-80">
-          <form onSubmit={handleSubmit} className="m-auto flex justify-center items-center mt-1 flex-wrap text-slate-900 gap-2 m-2" >
+          <form onSubmit={handleSubmit} className="m-auto flex justify-center items-center mt-1 flex-wrap text-slate-900 gap-2" >
             <div className="">
               <p className="text-lg font-semibold text-center mb-1 text-slate-400">Image</p>
               <div className="">
@@ -274,7 +274,7 @@ export default function App() {
                 </div>
 
                 <div className="flex justify-center mt-1">
-                  <button className="bg-indigo-600 font-medium px-2 py-1 rounded shadow-xl" onClick={generatePhoto}>
+                  <button className="bg-indigo-600 font-medium px-2 py-1 rounded shadow-xl text-white" onClick={generatePhoto}>
                     Generate
                   </button>
                 </div>
@@ -308,7 +308,7 @@ export default function App() {
                   </select>
                 </div>
                 <button
-                  className="form-btn"
+                  className="bg-indigo-600 font-medium px-2 py-1 rounded shadow-xl text-white"
                   onClick={() => {
                     saveImg(formData.fileType);
                   }}
