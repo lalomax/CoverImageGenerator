@@ -9,7 +9,7 @@ import { IoLogoYoutube } from "react-icons/io5";
 import SliderInput from "./components/SliderInput";
 
 export default function App() {
-  let [photo, setPhoto] = useState<{ id: any; urls: any; user: any }>({
+  const [photo, setPhoto] = useState<{ id: any; urls: any; user: any }>({
     id: "",
     urls: "",
     user: "",
@@ -109,11 +109,11 @@ export default function App() {
     html2canvas(document.getElementById("capture") as HTMLCanvasElement, {
       allowTaint: true,
       useCORS: true,
-      width : formData.width,
-      height : formData.height,
-      scale : 1,
+      // width : formData.width,
+      // height : formData.height,
+      // scale : 3,
     }).then(function (canvas) {
-      let anchorTag = document.createElement("a");
+      const anchorTag = document.createElement("a");
       document.body.appendChild(anchorTag);
 
       if (fileType === "jpg") {
